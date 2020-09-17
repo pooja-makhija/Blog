@@ -1,6 +1,6 @@
 .header{
     padding: 5px 20px;
-    background: royalblue;
+    background:black;
 }
 
 .title{
@@ -8,9 +8,10 @@
     text-decoration: none;
 }
 
-.login, .register{
+.login, .register, .add-post{
     float: right;
     text-decoration: none;
     color: white;
     padding-top: 10px;
 }
+

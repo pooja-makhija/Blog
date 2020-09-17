@@ -1,0 +1,79 @@
+<div class="container d-flex justify-content-center">
+        <form [formGroup]="registerForm">
+        <p class="h4 text-center mb-4 mt-4">Registration</p>
+
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                    <input type="text" id="first_name" [formControlName]="'first_name'" class="form-control input-sm" placeholder="First Name">
+                    <div *ngIf="registerForm.get('first_name').touched">
+                        <label *ngIf="registerForm.get('first_name').touched && registerForm.get('first_name').hasError('required')"
+                            style="font-size: 16px; color: red;">First Name is required</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                    <input type="text" id="last_name" [formControlName]="'last_name'" class="form-control input-sm" placeholder="Last Name">
+                    <div *ngIf="registerForm.get('last_name').touched">
+                        <label *ngIf="registerForm.get('last_name').touched && registerForm.get('last_name').hasError('required')"
+                            style="font-size: 16px; color: red;">Last Name is Required</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="text" id="email" [formControlName]="'email'" class="form-control input-sm" placeholder="Email Address">
+            <div *ngIf="registerForm.get('email').touched">
+                <label *ngIf="registerForm.get('email').hasError('pattern')" style="font-size: 16px; color: red;">Invalid
+                    Email</label>
+                <label *ngIf="registerForm.get('email').hasError('required')" style="font-size: 16px; color: red;">Email
+                    field
+                    is
+                    required</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                    <input type="password" id="password" [formControlName]="'password'" class="form-control input-sm" placeholder="Password">
+                    <div *ngIf="registerForm.get('password').touched">
+                        <label *ngIf="registerForm.get('password').touched && registerForm.get('password').hasError('required')"
+                            style="font-size: 16px; color: red;">Password is required</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                    <input type="password" id="password_confirmation" [formControlName]="'password_confirmation'" class="form-control input-sm" placeholder="Confirm Password">
+                    <div *ngIf="registerForm.get('password_confirmation').touched">
+                        <label *ngIf="registerForm.get('password_confirmation').touched && registerForm.get('password_confirmation').hasError('required')"
+                            style="font-size: 16px; color: red;">Confirm Password is required</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="tel" id="mno" [formControlName]="'mno'" class="form-control input-sm" placeholder="Mobile Number">
+            <div *ngIf="registerForm.get('mno').touched">
+                <label *ngIf="registerForm.get('mno').touched && registerForm.get('mno').hasError('required')"
+                    style="font-size: 16px; color: red;">Mobile Number is required</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <textarea class="form-control input-sm" id="bio" [formControlName]="'bio'" placeholder="Bio"></textarea>
+        </div>
+
+        <div class="form-group">
+            <input type="url" name="url" id="lurl" class="form-control input-sm" placeholder="Linked In URL(Optional)">
+        </div>
+                            
+        <input type="submit" value="Register" class="btn btn-info btn-block">
+    </form>
+</div>  
