@@ -17,7 +17,9 @@ export class RegisterComponent implements OnInit {
       email: ['', [Validators.required, Validators.email, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)]],
       password: ['', [Validators.required]],
       password_confirmation:['', [Validators.required]],
-      mno:['', [Validators.required]]
+      number: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
+      description: ['', [Validators.required]],
+      linkedin: ''
     })
   }
 

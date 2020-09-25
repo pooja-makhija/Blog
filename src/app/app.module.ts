@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { ShowHidePasswordModule } from 'ngx-show-hide-password';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -22,7 +21,6 @@ import { EditorModule } from '@tinymce/tinymce-angular';
   ],
   imports: [
     BrowserModule,
-    ShowHidePasswordModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,

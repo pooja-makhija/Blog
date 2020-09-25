@@ -1,79 +1,97 @@
 <div class="container d-flex justify-content-center">
-        <form [formGroup]="registerForm">
-        <p class="h4 text-center mb-4 mt-4">Registration</p>
+    <form class="form-signin form-content-width border border-light p-5 " style="width: 50%;" [formGroup]="registerForm">
+
+        <h1 class="h3 mb-3 font-weight-normal text-center">Sign Up</h1>
 
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
-                    <input type="text" id="first_name" [formControlName]="'first_name'" class="form-control input-sm" placeholder="First Name">
-                    <div *ngIf="registerForm.get('first_name').touched">
-                        <label *ngIf="registerForm.get('first_name').touched && registerForm.get('first_name').hasError('required')"
-                            style="font-size: 16px; color: red;">First Name is required</label>
+                    <label for="first_name" class="sr-only">First Name</label>
+                    <input type="text" id="first_name" [formControlName]="'first_name'" class="form-control" placeholder="First Name" autofocus="">
+                    <div *ngIf="registerForm?.get('first_name').touched">
+                        <label *ngIf="registerForm.get('first_name').hasError('required')" class="text-danger warning-messages">
+                            First name is required</label>
                     </div>
                 </div>
             </div>
 
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
-                    <input type="text" id="last_name" [formControlName]="'last_name'" class="form-control input-sm" placeholder="Last Name">
-                    <div *ngIf="registerForm.get('last_name').touched">
-                        <label *ngIf="registerForm.get('last_name').touched && registerForm.get('last_name').hasError('required')"
-                            style="font-size: 16px; color: red;">Last Name is Required</label>
+                    <label for="last_name" class="sr-only">Last Name</label>
+                    <input type="text" id="last_name" [formControlName]="'last_name'" class="form-control" placeholder="Last Name" autofocus="">
+                    <div *ngIf="registerForm?.get('last_name').touched">
+                            <label *ngIf="registerForm.get('last_name').hasError('required')" class="text-danger warning-messages">
+                                Last name is required</label>
                     </div>
                 </div>
-            </div>
+            </div>  
         </div>
+       
 
         <div class="form-group">
-            <input type="text" id="email" [formControlName]="'email'" class="form-control input-sm" placeholder="Email Address">
-            <div *ngIf="registerForm.get('email').touched">
-                <label *ngIf="registerForm.get('email').hasError('pattern')" style="font-size: 16px; color: red;">Invalid
-                    Email</label>
-                <label *ngIf="registerForm.get('email').hasError('required')" style="font-size: 16px; color: red;">Email
-                    field
-                    is
-                    required</label>
+            <label for="email" class="sr-only">Email</label>
+            <input type="text" id="email" [formControlName]="'email'" class="form-control" placeholder="name@example.com" autofocus="">
+            <div *ngIf="registerForm?.get('email')?.touched">
+                <label *ngIf="registerForm?.get('email')?.hasError('pattern')"
+                    class="text-danger warning-messages">Invalid email address</label>
+                <label *ngIf="registerForm?.get('email')?.hasError('required')"
+                    class="text-danger warning-messages">Email address required</label>
             </div>
         </div>
 
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
-                    <input type="password" id="password" [formControlName]="'password'" class="form-control input-sm" placeholder="Password">
-                    <div *ngIf="registerForm.get('password').touched">
-                        <label *ngIf="registerForm.get('password').touched && registerForm.get('password').hasError('required')"
-                            style="font-size: 16px; color: red;">Password is required</label>
+                    <label for="password" class="sr-only">Password</label>
+                    <input type="password" id="password" [formControlName]="'password'" class="form-control" placeholder="Password" 
+                        maxlength="15">
+                    <div *ngIf="registerForm?.get('password').touched">
+                        <label *ngIf="registerForm.get('password').hasError('required')" class="text-danger warning-messages">
+                            Password is required</label>
                     </div>
                 </div>
             </div>
 
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
-                    <input type="password" id="password_confirmation" [formControlName]="'password_confirmation'" class="form-control input-sm" placeholder="Confirm Password">
-                    <div *ngIf="registerForm.get('password_confirmation').touched">
-                        <label *ngIf="registerForm.get('password_confirmation').touched && registerForm.get('password_confirmation').hasError('required')"
-                            style="font-size: 16px; color: red;">Confirm Password is required</label>
+                    <label for="password_confirmation" class="sr-only">Confirm Password</label>
+                    <input type="password" id="password_confirmation" [formControlName]="'password_confirmation'" class="form-control" 
+                        placeholder="Confirm Password" maxlength="15">
+                    <div *ngIf="registerForm?.get('password_confirmation').touched">
+                        <label *ngIf="registerForm.get('password_confirmation').hasError('required')" class="text-danger warning-messages">
+                            Confirm Password is required</label>
+                        <label *ngIf="registerForm?.get('password_confirmation')?.hasError('mismatch')"
+                            class="text-danger warning-messages">Your password and confirm password do not match</label>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="form-group">
-            <input type="tel" id="mno" [formControlName]="'mno'" class="form-control input-sm" placeholder="Mobile Number">
-            <div *ngIf="registerForm.get('mno').touched">
-                <label *ngIf="registerForm.get('mno').touched && registerForm.get('mno').hasError('required')"
-                    style="font-size: 16px; color: red;">Mobile Number is required</label>
+            <label for="number" class="sr-only">Contact Number</label>
+            <input type="text" id="number" [formControlName]="'number'" class="form-control" placeholder="Contact number" autofocus="" maxlength="10">
+            <div *ngIf="registerForm?.get('number')?.touched">
+                <label *ngIf="registerForm?.get('number')?.hasError('pattern')"
+                    class="text-danger warning-messages">Enter valid contact number</label>
+                <label *ngIf="registerForm?.get('number')?.hasError('required')"
+                    class="text-danger warning-messages">Contact number is required</label>
             </div>
         </div>
 
         <div class="form-group">
-            <textarea class="form-control input-sm" id="bio" [formControlName]="'bio'" placeholder="Bio"></textarea>
+            <label for="description" class="sr-only">Self Description</label>
+            <textarea  type="text" class="form-control" id="description" [formControlName]="'description'" placeholder="Self Description" autofocus=""></textarea>
+            <div *ngIf="registerForm?.get('description')?.touched">
+                <label *ngIf="registerForm?.get('description')?.hasError('required')"
+                    class="text-danger warning-messages">Self description is required</label>
+            </div>
         </div>
 
         <div class="form-group">
-            <input type="url" name="url" id="lurl" class="form-control input-sm" placeholder="Linked In URL(Optional)">
+            <label for="LinkedUrl" class="sr-only">Linked In</label>
+            <input type="text" id="LinkedUrl" [formControlName]="'LinkedUrl'" class="form-control" placeholder="Linked In URL(Optional)" autofocus="">
         </div>
                             
-        <input type="submit" value="Register" class="btn btn-info btn-block">
-    </form>
+        <button class="btn btn-primary btn-block" type="submit" [disabled]="!registerForm.valid">Sign up</button>
+</form>
 </div>  
