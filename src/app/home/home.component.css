@@ -1,0 +1,12 @@
+.author{
+    font-size: 15px;
+    color: brown
+} 
+
+.content{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;
+} 

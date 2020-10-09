@@ -26,6 +26,7 @@
     "bootstrap": "^4.5.2",
     "bootstrap-icons": "^1.0.0",
     "ngx-show-hide-password": "^2.3.0",
+    "ngx-webstorage": "^6.0.0",
     "rxjs": "~6.5.5",
     "save": "^2.4.0",
     "tslib": "^2.0.0",
