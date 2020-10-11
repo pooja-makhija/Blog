@@ -1,19 +1,20 @@
 <div class="header">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <h1><a href="" class="title">Blog Application</a></h1>
+            <div class="col-md-4">
+                <h2><a href="" class="title">Blog Application</a></h2>
             </div>
 
-            <div class="col-md-6"  *ngIf="!authService.isAuthenticated()"> 
+            <div class="col-md-8"  *ngIf="!authService.isAuthenticated()"> 
                 <a href="/login" class="login btn btn-default">Login</a>
                 <a href="/register" class="register btn btn-default">Register</a>
             </div>
 
-            <div class="col-md-6" *ngIf="authService.isAuthenticated()">
+            <div class="col-md-8" *ngIf="authService.isAuthenticated()">
                 <a class="login btn btn-default" (click)="logout()">Logout</a>
-                <a href="/register" class="register btn btn-default">Profile</a>
-                <a href="/register" class="register btn btn-default">Draft</a>
+                <a class="login btn btn-default" (click)="deleteProfile()">Delete Profile</a>
+                <a href="/update-profile" class="register btn btn-default">Update Profile</a>
+                <a href="/draft" class="register btn btn-default">Draft</a>
                 <a href="/add-post" class="add-post btn btn-default">Add Post</a>
             </div>
         </div>

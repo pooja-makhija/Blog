@@ -1,0 +1,17 @@
+<div class="content">
+    <div class="container">
+        <div class="row" *ngFor="let blog of posts">
+            <div>
+                <br>
+                <h3>{{blog.title}}</h3>
+                <p class="content" [innerHTML]="blog.content"></p>
+                <em class="author"><strong>Author:</strong> {{blog.first_name}} | {{blog.email}}</em>
+                <div>
+                    <a type="button" href="/post/{{blog.id}}" class="read-more"><u><em>Read More</em></u></a>
+                </div>
+                <button class="btn btn-primary btn-block mt-4 " (click)="publishBlog(blog.id)">Publish</button>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>

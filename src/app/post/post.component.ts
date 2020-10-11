@@ -24,7 +24,7 @@ export class PostComponent implements OnInit {
     console.log(this.postId);
 
     this.postService.getPostById(this.postId).subscribe((res: any) => {
-      this.posts = res[0];
+      this.posts = res;
       console.log(this.posts);
     }, error => {
       alert("Unable to fetch records.");

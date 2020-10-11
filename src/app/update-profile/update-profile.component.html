@@ -1,0 +1,52 @@
+<div class="container d-flex justify-content-center">
+    <form class="form-signin form-content-width border border-light p-5 " style="width: 50%;" [formGroup]="updateForm"
+        (ngSubmit)="onSubmit()">
+
+        <h1 class="h3 mb-3 font-weight-normal text-center">Update User</h1>
+        <div class="form-group ">
+            <label for="inputFirstName" class="sr-only">First Name</label>
+            <input type="text" id="inputFirstName" [formControlName]="'firstName'" class="form-control"
+                placeholder="First Name" autofocus="">
+            <div *ngIf="updateForm.get('firstName').touched">
+                <label *ngIf="updateForm.get('firstName').hasError('required')"
+                    class="text-danger warning-messages">First Name
+                    is required</label>
+            </div>
+        </div>
+        <div class="form-group ">
+            <label for="inputLastName" class="sr-only">Last Name</label>
+            <input type="text" id="inputLastName" [formControlName]="'lastName'" class="form-control"
+                placeholder="Last Name" autofocus="">
+            <div *ngIf="updateForm.get('lastName').touched">
+                <label *ngIf="updateForm.get('lastName').hasError('required')" class="text-danger warning-messages">Last
+                    Name
+                    is required</label>
+            </div>
+        </div>
+        <div class="form-group ">
+            <label for="inputUsername" class="sr-only">Username</label>
+            <input type="text" id="inputUsername" [formControlName]="'username'" class="form-control"
+                placeholder="Username" autofocus="" disabled>
+            <div *ngIf="updateForm.get('username').touched">
+                <label *ngIf="updateForm.get('username').hasError('required')"
+                    class="text-danger warning-messages">Username
+                    is required</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputEmail" class="sr-only">Email</label>
+            <input type="text" id="inputEmail" [formControlName]="'email'" class="form-control" placeholder="Email"
+                autofocus="" disabled>
+            <div *ngIf="updateForm?.get('email')?.touched">
+                <label *ngIf="updateForm?.get('email')?.hasError('pattern')"
+                    class="text-danger warning-messages">Invalid
+                    Email Id</label>
+                <label *ngIf="updateForm?.get('email')?.hasError('required')" class="text-danger warning-messages">Email
+                    Id is Required</label>
+            </div>
+        </div>
+
+        <button class="btn btn-primary btn-block" type="submit" [disabled]="!updateForm.valid">Update Profile</button>
+    </form>
+</div> 

@@ -3,7 +3,7 @@
         <p class="h4 mb-4 mt-4">Create New Post</p>
     </div>
     <hr>
-    <form [formGroup]="addPostForm" (ngSubmit)="addPost()">
+    <form [formGroup]="addPostForm">
         <div class="form-group">
             <input type="text" id="title" [formControlName]="'title'" placeholder="Title" class=" form-control mb-2">
             <div *ngIf="addPostForm.get('title').touched">
@@ -38,10 +38,12 @@
 
         <div class="row">
             <div class="col-sm">
-                <button class="btn btn-primary btn-block mt-4 " [disabled]="!addPostForm.valid">Publish</button>
+                <button class="btn btn-primary btn-block mt-4 " [disabled]="!addPostForm.valid"
+                (click)="addPost()">Publish</button>
             </div>
             <div class="col-sm">
-                <button class="btn btn-primary btn-block mt-4 " [disabled]="!addPostForm.valid">Save as Draft</button>
+                <button class="btn btn-primary btn-block mt-4 " [disabled]="!addPostForm.valid"
+                (click)="saveInDraft()">Save as Draft</button>
             </div>
         </div>
     </form>

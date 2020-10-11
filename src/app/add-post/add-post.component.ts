@@ -57,4 +57,22 @@ export class AddPostComponent implements OnInit {
 
   }
 
+   //Save blog in draft
+   saveInDraft() {
+    this.postPayload.content = this.addPostForm.get('content').value;
+    this.postPayload.title = this.addPostForm.get('title').value;
+    this.postPayload.status = 'DRAFT';
+    this.postPayload.user_id = this.localStorage.retrieve('loginData').id;
+    this.postPayload.first_name = this.localStorage.retrieve('loginData').first_name;
+    console.log(this.postPayload);
+
+    //Call API here.
+    this.postService.addPost(this.postPayload).subscribe(data => {
+      console.log(data);
+      this.router.navigateByUrl("/home");
+    }, error => {
+      alert('Unsuccessful');
+    });
+  }
+
 }

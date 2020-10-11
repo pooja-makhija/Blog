@@ -2,9 +2,9 @@
     <div class="container">
         <div>
             <br>
-            <h3>{{posts.title}}</h3>
-            <p [innerHTML]="posts.content"></p>
-            <em class="author"><strong>Author:</strong> {{posts.first_name}} | {{posts.email}}</em>
+            <h3>{{posts[0].title}}</h3>
+            <p [innerHTML]="posts[0].content"></p>
+            <em class="author"><strong>Author:</strong> {{posts[0].first_name}} | {{posts[0].email}}</em>
             <hr>
         </div>
     </div>

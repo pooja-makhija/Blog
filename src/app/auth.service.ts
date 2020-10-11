@@ -31,6 +31,18 @@ export class AuthService {
     return this.httpClient.post(this.baseUrl + 'user/signup', registerPayload, { headers: headers })
   }
 
+   //Update user profile
+   updateProfile(updatePayload: RegisterPayload, id: Number): Observable<any> {
+    let headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.httpClient.patch(this.baseUrl + 'user/userUpdate/' + id, updatePayload, { headers: headers });
+  }
+
+   //delete user
+   deleteUser(id: Number) {
+    let headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.httpClient.delete(this.baseUrl + 'user/userDelete/' + id, { headers: headers });
+  }
+
   //Is authenticated method to check whether user has logged in or not.
   isAuthenticated(): boolean {
     return this.localStorageService.retrieve('loginData') != null;

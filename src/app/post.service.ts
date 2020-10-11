@@ -29,6 +29,12 @@ export class PostService {
     getPostById(id: Number): Observable<any> {
     let headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.httpClient.get(this.baseUrl + 'blog/getBlogDetails/' + id, { headers: headers });
+    
+  }
+   //save post list
+   publishBlog(id: Number, publishBlogPayload: GetBlogPayload): Observable<any> {
+    let headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.httpClient.patch(this.baseUrl + 'blog/updateBlog/' + id, publishBlogPayload, { headers: headers });
 
   }
 }
